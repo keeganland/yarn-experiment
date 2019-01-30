@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    private CharacterMover playerMover;
+    public CharacterMover player;
+
     [SerializeField]
     private float xMovementf = 0.0f, zMovementf = 0.0f;
 
+    private void Awake()
+    {
+        
+
+    }
 
     // Use this for initialization
-    void Start()
+    private void Start()
     {
-        playerMover = GetComponent<CharacterMover>();
+        if (!player)
+        {
+            Debug.Log("Warning! No player character was set through the inspector."
+                       + "The game will attempt to automatically find the player character");
+            GameObject possiblePlayer = GameObject.Find("Hero");
+            player = possiblePlayer.GetComponent<CharacterMover>();
+        }
+        
     }
 
 
@@ -30,6 +43,6 @@ public class PlayerInput : MonoBehaviour
     private void FixedUpdate()
     {
 
-        playerMover.MoveCharacter(xMovementf, zMovementf);
+        player.MoveCharacter(xMovementf, zMovementf);
     }
 }

@@ -2,7 +2,7 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Hello world!\n\n-> What is this\n   I don't understand\n\n[[Go to node 1|Node1]]\n[[yknow what go to node 2|Node2]]",
+		"body": "Hello world!\nI'm another line wow\nI should be a third line?\n\n[[Go to node 1|Node1]]\n[[yknow what go to node 2|Node2]]",
 		"position": {
 			"x": 446,
 			"y": 87
@@ -12,7 +12,7 @@
 	{
 		"title": "Node1",
 		"tags": "",
-		"body": "This is node 1\n\n[[Go back|Start]]",
+		"body": "This is node 1",
 		"position": {
 			"x": 205,
 			"y": 366
@@ -22,7 +22,7 @@
 	{
 		"title": "Node2",
 		"tags": "",
-		"body": "holy moly its node 2\n[[Go back|Start]]",
+		"body": "holy moly its node 2",
 		"position": {
 			"x": 430,
 			"y": 363
