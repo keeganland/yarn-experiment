@@ -681,6 +681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bdab61ac6f7e541b7b2f53790dfbb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: NPC
+  talkToNode: Start
 --- !u!114 &930834779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,7 +710,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!136 &930834781
 CapsuleCollider:
@@ -1305,6 +1307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  interactionRadius: 2
   xMovementf: 0
   zMovementf: 0
 --- !u!1 &1459152894
@@ -1658,7 +1661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851491919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 154.8488, y: 156.06801, z: 0.000061035156}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1676,15 +1679,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bec29c0a230741bdac901dba8da47ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceText:
-  - {fileID: 4900000, guid: e3f1f1b8f35dc2f43aed89b246c856ff, type: 3}
+  sourceText: []
   stringGroups: []
   shouldOverrideLanguage: 0
   overrideLanguage: 10
   variableStorage: {fileID: 1851491923}
   dialogueUI: {fileID: 1095827169}
   startNode: Start
-  startAutomatically: 1
+  startAutomatically: 0
   automaticCommands: 1
 --- !u!114 &1851491922
 MonoBehaviour:

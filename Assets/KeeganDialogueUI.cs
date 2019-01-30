@@ -25,6 +25,8 @@ public class KeeganDialogueUI : DialogueUIBehaviour
             //boxContent = textPanel.GetComponentInChildren<Text>();
             textPanel.SetActive(false);
             choicePanel = textPanel.transform.Find("ChoicePanel").gameObject;
+            if (choicePanel)
+                choicePanel.SetActive(false);
         }
         else
         {
@@ -32,6 +34,18 @@ public class KeeganDialogueUI : DialogueUIBehaviour
         }
        
     }
+
+    private void Update()
+    {
+        if (boxContent.gameObject.activeSelf)
+        {
+            if (Input.GetButton("Jump"))
+            {
+                cancelTyping = true;
+            }
+        }
+    }
+
 
     public override IEnumerator RunLine(Line line)
     {
@@ -85,6 +99,9 @@ public class KeeganDialogueUI : DialogueUIBehaviour
                              "buttons to present them in. This will cause problems.");
         }
 
+        if (choicePanel)
+            choicePanel.SetActive(true);
+
         int i = 0;
         foreach (var optionString in optionsCollection.options)
         {
@@ -103,6 +120,8 @@ public class KeeganDialogueUI : DialogueUIBehaviour
         }
 
         // Hide all the buttons
+        if (choicePanel)
+            choicePanel.SetActive(false);
         foreach (var button in optionButtons)
         {
             button.gameObject.SetActive(false);
