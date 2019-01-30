@@ -9,7 +9,7 @@ public class KeeganDialogueUI : DialogueUIBehaviour
 {
     public GameObject textPanel;
     public GameObject gameControlsContainer;
-    public float typeSpeed = 0.01f;
+    public float typeSpeed;
     public List<Button> optionButtons;
     public Text boxContent;
     private GameObject choicePanel;
@@ -56,12 +56,13 @@ public class KeeganDialogueUI : DialogueUIBehaviour
         cancelTyping = false;
         #endregion
 
-        boxContent.gameObject.SetActive(false);
         while (Input.anyKeyDown == false)
         {
             yield return null;
         }
 
+        //boxContent.gameObject.SetActive(false);
+        Debug.Log("Reached end of RunLine coroutine");
     }
 
     /* Stolen outright from the example
@@ -120,10 +121,20 @@ public class KeeganDialogueUI : DialogueUIBehaviour
 
         // Call the delegate to tell the dialogue system that we've
         // selected an option.
-        optionChoiceDelegate(selectedOption);
+        try
+        {
+            optionChoiceDelegate(selectedOption);
+        }
+        catch (System.Exception)
+        {
 
-        // Now remove the delegate so that the loop in RunOptions will exit
-        optionChoiceDelegate = null;
+            throw;
+        }
+        finally
+        {
+            // Now remove the delegate so that the loop in RunOptions will exit
+            optionChoiceDelegate = null;
+        }
     }
 
     /// Called when the dialogue system has started running.
